@@ -10,21 +10,21 @@ import com.ramadanapps.movieskmm.util.provideDispatcher
 import org.koin.dsl.module
 
 
-val dataModule = module {
+private val dataModule = module {
     factory { MovieDataSource(get(),get()) }
     factory { MovieService() }
 }
 
-val utilityModule = module {
+private val utilityModule = module {
     factory { provideDispatcher() }
 }
 
-val domainModule = module {
+private val domainModule = module {
     single<MovieRepository> { MovieRepositoryImpl(get()) }
     factory { GetMovieUseCase() }
     factory { GetMoviesUseCase() }
 }
 
-val sharedModules = listOf(dataModule, utilityModule, domainModule)
+private val sharedModules = listOf(dataModule, utilityModule, domainModule)
 
 fun getSharedModules() = sharedModules

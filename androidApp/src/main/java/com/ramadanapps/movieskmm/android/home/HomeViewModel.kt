@@ -28,6 +28,7 @@ class HomeViewModel(private val getMoviesUseCase: GetMoviesUseCase): ViewModel()
             try {
                 val result = getMoviesUseCase(currentPage)
                 val movies = if (currentPage == 1) result else uiState.movies + result
+                currentPage += 1
                 uiState = uiState.copy(
                     loading = false,
                     refreshing = false,

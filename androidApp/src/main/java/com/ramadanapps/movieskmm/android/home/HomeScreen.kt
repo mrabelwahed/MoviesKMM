@@ -73,7 +73,7 @@ fun HomeScreen(
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            itemsIndexed(items = state.movies, key = { _, movie -> movie.id }) { index, movie ->
+            itemsIndexed(items = state.movies.distinct(), key = { _, movie -> movie.id }) { index, movie ->
                 MovieListItem(movie = movie, onMovieClicked = { navigateToDetails(movie) })
 
                 if (index >= state.movies.size - 1 && !state.loadFinished && !state.loading) {
@@ -127,7 +127,6 @@ fun MovieListItem(modifier: Modifier = Modifier, movie: Movie, onMovieClicked: (
                 )
                 Surface(
                     modifier = Modifier
-                        .background(Color.Black.copy(alpha = 0.6f))
                         .size(50.dp),
                     shape = CircleShape
                 ) {

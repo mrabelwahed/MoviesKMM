@@ -8,7 +8,7 @@ import com.ramadanapps.movieskmm.domain.repository.MovieRepository
 internal class MovieRepositoryImpl(private val movieDataSource: MovieDataSource): MovieRepository {
 
     override suspend fun getMovies(page: Int): List<Movie> {
-        return movieDataSource.getMovies(page).movies.map {
+        return movieDataSource.getMovies(page).results.map {
             it.toMovie()
         }
     }
