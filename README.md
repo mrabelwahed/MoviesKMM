@@ -1,5 +1,5 @@
-# Journal
-An Android app built with Jetpack Compose and the latest android libraries.
+# Movies
+Application built using Kotlin MultiPlatform (KMM) for Android and IOS from shared Kotlin business logic.
 
 # Preview 
 <p float="left">
